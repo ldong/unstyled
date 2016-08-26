@@ -28,7 +28,9 @@
 
 <template name="atSelectInput">
   <div class="at-input">
-    <label for="at-field-{{_id}}">{{displayName}}</label>
+    {{#if showLabels}}
+        <label for="at-field-{{_id}}">{{displayName}}</label>
+    {{/if}}
     <select id="at-field-{{_id}}" name="at-field-{{_id}}">
       {{#each values}}
         <option value="{{value}}">{{text}}</option>
@@ -41,6 +43,7 @@
   <div class="at-input">
     <label>{{displayName}}</label>
   </div>
+  {{/if}}
   {{#each values}}
     <div class="at-input">
       <input id="at-field-{{id}}-choice-{{value}}" type="radio" name="at-field-{{id}}" value={{value}}>
